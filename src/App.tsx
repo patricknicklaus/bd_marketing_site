@@ -15,6 +15,7 @@ import TermsAndConditions from './pages/legal/TermsAndConditions'
 import Careers from './pages/company/Careers'
 import Press from './pages/company/Press'
 import Support from './pages/company/Support'
+import BusinessListingForm from './pages/BusinessListing'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/comingsoon" element={<Contact />} />
+          <Route path="/become_a_host" element={<BusinessListingForm />} />
           <Route path="/legal/ccpa" element={<CCPA />} />
           <Route path="/legal/colorado_safety_policy" element={<ColoradoSafetyPolicy />} />
           <Route path="/legal/community_guidelines" element={<CommunityGuidelines />} />
