@@ -38,6 +38,7 @@ const BusinessListingForm: React.FC = () => {
     control,
     formState: { errors },
     watch,
+    reset,  
   } = useForm<FormData>({
     defaultValues: {
       name: '',
@@ -87,39 +88,59 @@ const BusinessListingForm: React.FC = () => {
       console.log('Form data:', data);
       
       // Format the data for Supabase
-      const formattedData = {
-        name: data.name,
-        address: {
-          street_line_one: data.streetLineOne,
-          street_line_two: data.streetLineTwo || null,
-          city: data.city,
-          state: data.state,
-          zip_code: data.zipCode,
-        },
-        business_hours: {
-          sunday: data.sunday.isClosed ? { closed: true } : { open: data.sunday.open, close: data.sunday.close },
-          monday: data.monday.isClosed ? { closed: true } : { open: data.monday.open, close: data.monday.close },
-          tuesday: data.tuesday.isClosed ? { closed: true } : { open: data.tuesday.open, close: data.tuesday.close },
-          wednesday: data.wednesday.isClosed ? { closed: true } : { open: data.wednesday.open, close: data.wednesday.close },
-          thursday: data.thursday.isClosed ? { closed: true } : { open: data.thursday.open, close: data.thursday.close },
-          friday: data.friday.isClosed ? { closed: true } : { open: data.friday.open, close: data.friday.close },
-          saturday: data.saturday.isClosed ? { closed: true } : { open: data.saturday.open, close: data.saturday.close },
-        },
-        tags: data.tags,
-      };
+    //   const formattedData = {
+    //     name_input: data.name,
+    //     street_line_one_input: data.streetLineOne,
+    //     street_line_two_input: data.streetLineTwo || null,
+    //     city_input: data.city,
+    //     state_input: data.state,
+    //     zip_code_input: data.zipCode,
+    //     sunday_open_input: data.sunday.isClosed ? "" : data.sunday.open,
+    //     sunday_close_input: data.sunday.isClosed ? "" : data.sunday.close,
+    //     monday_open_input: data.monday.isClosed ? "" :  data.monday.open,
+    //     monday_close_input: data.monday.isClosed ? "" :  data.monday.close,
+    //     tuesday_open_input: data.tuesday.isClosed ? "" :  data.tuesday.open,
+    //     tuesday_close_input: data.tuesday.isClosed ? "" :  data.tuesday.close,
+    //     wednesday_open_input: data.wednesday.isClosed ? "" : data.wednesday.open,
+    //     wednesday_close_input: data.wednesday.isClosed ? "" : data.wednesday.close,
+    //     thursday_open_input: data.thursday.isClosed ? "" : data.thursday.open,
+    //     thursday_close_input: data.thursday.isClosed ? "" : data.thursday.close,
+    //     tags_input: data.tags,
+    //   };
 
-      console.log('formattedData -----', formattedData)
+    //   console.log('formattedData -----', formattedData)
 
       // Insert the data into Supabase
     //   const { data: insertedData, error } = await supabase
     //     .from('business_listings')
     //     .insert(formattedData);
 
-    //   if (error) {
-    //     throw new Error(error.message);
-    //   }
+    const { data: newAddressReturnsVoid, error } = await supabase.rpc('insert_location_mktng_site', { 
+        name_input: data.name,
+        street_line_one_input: data.streetLineOne,
+        street_line_two_input: data.streetLineTwo || null,
+        city_input: data.city,
+        state_input: data.state,
+        zip_code_input: data.zipCode,
+        sunday_open_input: data.sunday.isClosed ? "" : data.sunday.open,
+        sunday_close_input: data.sunday.isClosed ? "" : data.sunday.close,
+        monday_open_input: data.monday.isClosed ? "" :  data.monday.open,
+        monday_close_input: data.monday.isClosed ? "" :  data.monday.close,
+        tuesday_open_input: data.tuesday.isClosed ? "" :  data.tuesday.open,
+        tuesday_close_input: data.tuesday.isClosed ? "" :  data.tuesday.close,
+        wednesday_open_input: data.wednesday.isClosed ? "" : data.wednesday.open,
+        wednesday_close_input: data.wednesday.isClosed ? "" : data.wednesday.close,
+        thursday_open_input: data.thursday.isClosed ? "" : data.thursday.open,
+        thursday_close_input: data.thursday.isClosed ? "" : data.thursday.close,
+        tags_input: data.tags, 
+     })
 
-    //   alert('Business listing saved successfully!');
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      alert('Business listing saved successfully!');
+      reset();
     } catch (error) {
       console.error('Error saving business listing:', error);
       alert('Error saving business listing. Please try again.');
@@ -131,6 +152,8 @@ const BusinessListingForm: React.FC = () => {
     const dayLowercase = day.toLowerCase() as keyof FormData;
     // Fixed: Use watch() with typecasting to fix the TypeScript error
     const isClosed = watch(`${dayLowercase}.isClosed` as const) as boolean;
+    // const isClosed = watch(`${dayLowercase}.isClosed` as `${typeof dayLowercase}.isClosed`) as boolean;
+    // const isClosed = watch([dayLowercase, 'isClosed']) as boolean;
 
     return (
       <div className="mb-4">

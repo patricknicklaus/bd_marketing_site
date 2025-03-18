@@ -42,8 +42,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/comingsoon" element={<Contact />} />
+          {/* <Route path="/about" element={<About />} />
+          <Route path="/comingsoon" element={<Contact />} /> */}
           <Route path="/legal/ccpa" element={<CCPA />} />
           <Route path="/legal/colorado_safety_policy" element={<ColoradoSafetyPolicy />} />
           <Route path="/legal/community_guidelines" element={<CommunityGuidelines />} />
