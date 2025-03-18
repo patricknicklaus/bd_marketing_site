@@ -1,5 +1,5 @@
 // src/App.tsx
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -16,6 +16,7 @@ import Careers from './pages/company/Careers'
 import Press from './pages/company/Press'
 import Support from './pages/company/Support'
 import BusinessListingForm from './pages/BusinessListing'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -43,7 +44,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/comingsoon" element={<Contact />} />
-          <Route path="/become_a_host" element={<BusinessListingForm />} />
           <Route path="/legal/ccpa" element={<CCPA />} />
           <Route path="/legal/colorado_safety_policy" element={<ColoradoSafetyPolicy />} />
           <Route path="/legal/community_guidelines" element={<CommunityGuidelines />} />
@@ -53,6 +53,8 @@ function App() {
           <Route path="/company/careers" element={<Careers />} />
           <Route path="/company/press" element={<Press />} />
           <Route path="/company/support" element={<Support />} />
+          <Route path="/company/become_a_host" element={<BusinessListingForm />} />
+          <Route path="*" element={<NotFound /> }/>
         </Routes>
       </main>
       <footer>
