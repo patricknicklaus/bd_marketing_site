@@ -235,7 +235,7 @@ const BusinessListingForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-offWhite text-slate-700">
+    <div className="min-h-screen flex flex-col bg-white text-slate-700">
         
         <main className="flex-grow mt-20 py-10 px-20">
             <div className="max-w-4xl mx-auto mb-15">
@@ -244,146 +244,146 @@ const BusinessListingForm: React.FC = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere arcu vitae aliquet gravida. Quisque tincidunt ac magna et mattis. Sed dui magna, accumsan nec ex blandit, posuere rutrum neque. Duis scelerisque tellus ante, sit amet varius ligula porta a. Aliquam rutrum sapien nec pellentesque ornare. Suspendisse nec ipsum ut felis finibus euismod sit amet eu metus. Sed vulputate eros in leo elementum, vitae eleifend dolor fermentum. Mauris et maximus felis, ut placerat urna. Nullam ut velit semper, laoreet nibh posuere, varius odio. 
                 </p>
             </div>
-            <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
-            <h1 className="text-2xl font-bold mb-6">Add Business Listing</h1>
-            
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                {/* Basic Information */}
-                <div className="bg-gray-50 p-4 rounded-md">
-                <h2 className="text-lg font-semibold mb-4 text-gray-700">Basic Information</h2>
+            <div className="max-w-4xl mx-auto p-6 bg-slate-50 rounded-lg shadow-md">
+                <h1 className="text-2xl font-bold mb-6">Add Business Listing</h1>
                 
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-                    Business Name*
-                    </label>
-                    <input
-                    id="name"
-                    type="text"
-                    className={`w-full px-3 py-2 border rounded-md ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
-                    {...register('name', { required: true })}
-                    />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">Business name is required</p>}
-                </div>
-                
-                {/* Address Fields */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="streetLineOne">
-                        Street Address*
-                    </label>
-                    <input
-                        id="streetLineOne"
-                        type="text"
-                        className={`w-full px-3 py-2 border rounded-md ${errors.streetLineOne ? 'border-red-500' : 'border-gray-300'}`}
-                        {...register('streetLineOne', { required: true })}
-                    />
-                    {errors.streetLineOne && <p className="text-red-500 text-xs mt-1">Street address is required</p>}
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                    {/* Basic Information */}
+                    <div className="bg-white p-4 rounded-md">
+                        <h2 className="text-lg font-semibold mb-4 text-gray-700">Basic Information</h2>
+                        
+                        <div className="mb-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+                            Business Name*
+                            </label>
+                            <input
+                            id="name"
+                            type="text"
+                            className={`w-full px-3 py-2 border rounded-md ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+                            {...register('name', { required: true })}
+                            />
+                            {errors.name && <p className="text-red-500 text-xs mt-1">Business name is required</p>}
+                        </div>
+                        
+                        {/* Address Fields */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="mb-4">
+                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="streetLineOne">
+                                    Street Address*
+                                </label>
+                                <input
+                                    id="streetLineOne"
+                                    type="text"
+                                    className={`w-full px-3 py-2 border rounded-md ${errors.streetLineOne ? 'border-red-500' : 'border-gray-300'}`}
+                                    {...register('streetLineOne', { required: true })}
+                                />
+                                {errors.streetLineOne && <p className="text-red-500 text-xs mt-1">Street address is required</p>}
+                            </div>
+                            
+                            <div className="mb-4">
+                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="streetLineTwo">
+                                    Street Address Line 2
+                                </label>
+                                <input
+                                    id="streetLineTwo"
+                                    type="text"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                                    {...register('streetLineTwo')}
+                                />
+                            </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div className="mb-4">
+                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="city">
+                                    City*
+                                </label>
+                                <input
+                                    id="city"
+                                    type="text"
+                                    className={`w-full px-3 py-2 border rounded-md ${errors.city ? 'border-red-500' : 'border-gray-300'}`}
+                                    {...register('city', { required: true })}
+                                />
+                                {errors.city && <p className="text-red-500 text-xs mt-1">City is required</p>}
+                            </div>
+                                
+                            <div className="mb-4">
+                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="state">
+                                    State*
+                                </label>
+                                <input
+                                    id="state"
+                                    type="text"
+                                    className={`w-full px-3 py-2 border rounded-md ${errors.state ? 'border-red-500' : 'border-gray-300'}`}
+                                    {...register('state', { required: true })}
+                                />
+                                {errors.state && <p className="text-red-500 text-xs mt-1">State is required</p>}
+                            </div>
+                            
+                            <div className="mb-4">
+                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="zipCode">
+                                    ZIP Code*
+                                </label>
+                                <input
+                                    id="zipCode"
+                                    type="text"
+                                    className={`w-full px-3 py-2 border rounded-md ${errors.zipCode ? 'border-red-500' : 'border-gray-300'}`}
+                                    {...register('zipCode', { required: true })}
+                                />
+                                {errors.zipCode && <p className="text-red-500 text-xs mt-1">ZIP code is required</p>}
+                            </div>
+                        </div>
                     </div>
                     
-                    <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="streetLineTwo">
-                        Street Address Line 2
-                    </label>
-                    <input
-                        id="streetLineTwo"
-                        type="text"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                        {...register('streetLineTwo')}
-                    />
-                    </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="city">
-                        City*
-                    </label>
-                    <input
-                        id="city"
-                        type="text"
-                        className={`w-full px-3 py-2 border rounded-md ${errors.city ? 'border-red-500' : 'border-gray-300'}`}
-                        {...register('city', { required: true })}
-                    />
-                    {errors.city && <p className="text-red-500 text-xs mt-1">City is required</p>}
+                    {/* Business Hours */}
+                    <div className="bg-white p-4 rounded-md">
+                        <h2 className="text-lg font-semibold mb-4 text-gray-700">Business Hours</h2>
+                        <p className="text-sm text-gray-600 mb-4">Set your business hours or mark days as closed. Hours are in 24-hour format.</p>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <BusinessHoursInput day="Sunday" control={control} errors={errors} />
+                            <BusinessHoursInput day="Monday" control={control} errors={errors} />
+                            <BusinessHoursInput day="Tuesday" control={control} errors={errors} />
+                            <BusinessHoursInput day="Wednesday" control={control} errors={errors} />
+                            <BusinessHoursInput day="Thursday" control={control} errors={errors} />
+                            {/* <BusinessHoursInput day="Friday" control={control} errors={errors} />
+                            <BusinessHoursInput day="Saturday" control={control} errors={errors} /> */}
+                        </div>
                     </div>
                     
-                    <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="state">
-                        State*
-                    </label>
-                    <input
-                        id="state"
-                        type="text"
-                        className={`w-full px-3 py-2 border rounded-md ${errors.state ? 'border-red-500' : 'border-gray-300'}`}
-                        {...register('state', { required: true })}
-                    />
-                    {errors.state && <p className="text-red-500 text-xs mt-1">State is required</p>}
+                    {/* Tags */}
+                    <div className="bg-white p-4 rounded-md">
+                        <h2 className="text-lg font-semibold mb-4 text-gray-700">Business Tags*</h2>
+                        <p className="text-sm text-gray-600 mb-4">Select all tags that apply to your business.</p>
+                        
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+                            {availableTags.map((tag) => (
+                            <div key={tag} className="flex items-center">
+                                <input
+                                id={`tag-${tag}`}
+                                type="checkbox"
+                                value={tag}
+                                className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('tags', { required: true })}
+                                />
+                                <label htmlFor={`tag-${tag}`} className="ml-2 text-sm text-gray-700">
+                                {tag}
+                                </label>
+                            </div>
+                            ))}
+                        </div>
+                    {errors.tags && <p className="text-red-500 text-xs mt-2">Please select at least one tag</p>}
                     </div>
                     
-                    <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="zipCode">
-                        ZIP Code*
-                    </label>
-                    <input
-                        id="zipCode"
-                        type="text"
-                        className={`w-full px-3 py-2 border rounded-md ${errors.zipCode ? 'border-red-500' : 'border-gray-300'}`}
-                        {...register('zipCode', { required: true })}
-                    />
-                    {errors.zipCode && <p className="text-red-500 text-xs mt-1">ZIP code is required</p>}
+                    <div className="flex justify-end">
+                        <button
+                            type="submit"
+                            className="bg-hotPink hover:bg-logoBlue text-white font-bold py-2 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200"
+                        >
+                            Submit Listing
+                        </button>
                     </div>
-                </div>
-                </div>
-                
-                {/* Business Hours */}
-                <div className="bg-gray-50 p-4 rounded-md">
-                <h2 className="text-lg font-semibold mb-4 text-gray-700">Business Hours</h2>
-                <p className="text-sm text-gray-600 mb-4">Set your business hours or mark days as closed. Hours are in 24-hour format.</p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <BusinessHoursInput day="Sunday" control={control} errors={errors} />
-                    <BusinessHoursInput day="Monday" control={control} errors={errors} />
-                    <BusinessHoursInput day="Tuesday" control={control} errors={errors} />
-                    <BusinessHoursInput day="Wednesday" control={control} errors={errors} />
-                    <BusinessHoursInput day="Thursday" control={control} errors={errors} />
-                    {/* <BusinessHoursInput day="Friday" control={control} errors={errors} />
-                    <BusinessHoursInput day="Saturday" control={control} errors={errors} /> */}
-                </div>
-                </div>
-                
-                {/* Tags */}
-                <div className="bg-gray-50 p-4 rounded-md">
-                <h2 className="text-lg font-semibold mb-4 text-gray-700">Business Tags*</h2>
-                <p className="text-sm text-gray-600 mb-4">Select all tags that apply to your business.</p>
-                
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-                    {availableTags.map((tag) => (
-                    <div key={tag} className="flex items-center">
-                        <input
-                        id={`tag-${tag}`}
-                        type="checkbox"
-                        value={tag}
-                        className="form-checkbox h-5 w-5 text-blue-600"
-                        {...register('tags', { required: true })}
-                        />
-                        <label htmlFor={`tag-${tag}`} className="ml-2 text-sm text-gray-700">
-                        {tag}
-                        </label>
-                    </div>
-                    ))}
-                </div>
-                {errors.tags && <p className="text-red-500 text-xs mt-2">Please select at least one tag</p>}
-                </div>
-                
-                <div className="flex justify-end">
-                <button
-                    type="submit"
-                    className="bg-hotPink hover:bg-logoBlue text-white font-bold py-2 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200"
-                >
-                    Submit Listing
-                </button>
-                </div>
-            </form>
+                </form>
             </div>
         </main>
     </div>
