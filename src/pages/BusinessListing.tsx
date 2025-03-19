@@ -241,7 +241,7 @@ const BusinessListingForm: React.FC = () => {
             <div className="max-w-4xl mx-auto mb-15">
                 <h1 className="text-4xl mb-2 font-bold text-center">Want to host dates at your business?</h1>
                 <p className="">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere arcu vitae aliquet gravida. Quisque tincidunt ac magna et mattis. Sed dui magna, accumsan nec ex blandit, posuere rutrum neque. Duis scelerisque tellus ante, sit amet varius ligula porta a. Aliquam rutrum sapien nec pellentesque ornare. Suspendisse nec ipsum ut felis finibus euismod sit amet eu metus. Sed vulputate eros in leo elementum, vitae eleifend dolor fermentum. Mauris et maximus felis, ut placerat urna. Nullam ut velit semper, laoreet nibh posuere, varius odio. 
+                We’re always looking for a good locations to host dates so if you have/know one, please share it! Currently, we scour the interwebs for what we think looks like a good place for a first date. The main criteria we're looking for is good and diverse seating that allows for daters to sit next to each other rather then across from each other. Several psychologists have recommended that as a technique to stimulate conversation while also reducing social pressure/dating anxiety. Both parties get to share the same view which tends to lead to easier/more dialogue and tends to reveals personality traits by the things they comments on from the environment. Bonus points if the location can lead to an additional activity like a walk or entertainment venue, if the date really goes well!
                 </p>
             </div>
             <div className="max-w-4xl mx-auto p-6 bg-slate-50 rounded-lg shadow-md">
