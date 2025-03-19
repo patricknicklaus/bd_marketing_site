@@ -71,6 +71,15 @@ const BusinessListingForm: React.FC = () => {
     'Lunch',
   ];
 
+  type BizDays =
+  | 'sunday'
+  | 'monday'
+  | 'tuesday'
+  | 'wednesday'
+  | 'thursday'
+  | 'friday'
+  | 'saturday';
+
   // Generate time options from 6am to midnight
   const generateTimeOptions = () => {
     const options = [];
@@ -149,7 +158,7 @@ const BusinessListingForm: React.FC = () => {
 
   // Create a reusable component for the business hours inputs
   const BusinessHoursInput = ({ day, control, errors }: { day: string, control: any, errors: any }) => {
-    const dayLowercase = day.toLowerCase() as keyof FormData;
+    const dayLowercase = day.toLowerCase() as BizDays;
     // Fixed: Use watch() with typecasting to fix the TypeScript error
     const isClosed = watch(`${dayLowercase}.isClosed` as const) as boolean;
     // const isClosed = watch(`${dayLowercase}.isClosed` as `${typeof dayLowercase}.isClosed`) as boolean;
